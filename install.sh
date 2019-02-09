@@ -1,4 +1,8 @@
+#!/bin/bash
+
 mkdir ~/.cloto/
 cp -r sound ~/.cloto/
-crontab -l | { cat; echo '0 7-21 * * * afplay ~/.cloto/sound/00.m4a'; } | crontab
-crontab -l | { cat; echo '30 7-21 * * * afplay ~/.cloto/sound/30.m4a'; } | crontab
+cp play.sh ~/.cloto/
+chmod a+x ~/.cloto/play.sh
+crontab -l | { cat; echo '0 7-21 * * * ~/.cloto/play.sh 00'; } | crontab
+crontab -l | { cat; echo '30 7-21 * * * ~/.cloto/play.sh 30'; } | crontab
